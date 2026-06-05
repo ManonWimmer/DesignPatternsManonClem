@@ -4,11 +4,14 @@ using UnityEngine;
 public class HealthController : MonoBehaviour, IDamageable
 {
     // ----- FIELDS ----- //
-    [Header("Values")]
-    [SerializeField] private float _maxHealth = 3f;
+    [Header("Stats")]
+    [SerializeField] private StatsSO _stats;
 
     private float _health;
+    private float _maxHealth;
+
     public float Health { get => _health; set => _health = value; }
+    public float MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
     public event Action<float, float> OnHealthChanged;
     public event Action OnDie;
@@ -16,6 +19,10 @@ public class HealthController : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        if (!_stats)
+            return;
+
+        _maxHealth = _stats.MaxHealth;
         _health = _maxHealth;
         OnHealthChanged?.Invoke(_health, _maxHealth);
     }

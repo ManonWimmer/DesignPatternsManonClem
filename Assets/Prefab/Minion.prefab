@@ -1,54 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6437194085716204350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2645529297702489241}
-  - component: {fileID: 6765059310339000721}
-  m_Layer: 0
-  m_Name: AnimationController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2645529297702489241
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6437194085716204350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4854935658072638053}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6765059310339000721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6437194085716204350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 226e108796615de49801f24a94419e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationController
-  _animator: {fileID: 5389989245478962096}
-  _healthController: {fileID: 2211737237510678354}
-  _dieAnimTrigger: Die
-  _attackController: {fileID: 7496018837596913967}
-  _attackAnimTrigger: Attack
 --- !u!1 &7679458280390756282
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,54 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d6981d1afede546b9486fdc610605c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphCollisionEvents
---- !u!1 &8055086479368325550
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3918877929038846572}
-  - component: {fileID: 7496018837596913967}
-  m_Layer: 0
-  m_Name: AttackController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3918877929038846572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8055086479368325550}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4854935658072638053}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7496018837596913967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8055086479368325550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc543a485fcd5242bc768f2cf1072a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackController
-  _attackCooldownTime: 3
-  _damageTrigger: {fileID: 6009445410087254173}
-  _attackDamage: 1
-  _damageTriggerTime: 1
 --- !u!1 &8756869048247293280
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +463,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2784793763340203397, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 13ec775dfd40bdb4a89c26a0887db6d2,
+        type: 2}
+    - target: {fileID: 2784793763340203397, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _damageTrigger
+      value: 
+      objectReference: {fileID: 6009445410087254173}
+    - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 5389989245478962096}
+    - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _attackController
+      value: 
+      objectReference: {fileID: 7641742089665197050}
     - target: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -580,6 +504,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70710677
       objectReference: {fileID: 0}
+    - target: {fileID: 5915710732848816429, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 13ec775dfd40bdb4a89c26a0887db6d2,
+        type: 2}
     - target: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_Name
@@ -620,14 +550,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3599550589941050029}
-    - targetCorrespondingSourceObject: {fileID: 1137522428351906842, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3918877929038846572}
-    - targetCorrespondingSourceObject: {fileID: 1137522428351906842, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2645529297702489241}
     - targetCorrespondingSourceObject: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       insertIndex: -1
@@ -701,7 +623,7 @@ MonoBehaviour:
           m_Value0: 8032389610125759899
           m_Value1: 1133641831107674913
         Name: AttackController
-        m_Value: {fileID: 7496018837596913967}
+        m_Value: {fileID: 7641742089665197050}
 --- !u!114 &2211737237510678354 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5915710732848816429, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
@@ -726,3 +648,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5524079308583765631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7641742089665197050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2784793763340203397, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5524079308583765631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc543a485fcd5242bc768f2cf1072a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackController

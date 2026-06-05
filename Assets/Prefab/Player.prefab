@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42acb75ff0b8d2a4399994668d48c286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthController
-  _maxHealth: 3
+  _stats: {fileID: 11400000, guid: 4ca60df69f16bee44b224a2411aa3849, type: 2}
 --- !u!1 &8763644041369199465
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,10 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc543a485fcd5242bc768f2cf1072a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackController
-  _attackCooldownTime: 3
+  _stats: {fileID: 11400000, guid: 4ca60df69f16bee44b224a2411aa3849, type: 2}
   _damageTrigger: {fileID: 0}
-  _attackDamage: 1
-  _damageTriggerTime: 1
 --- !u!1001 &615197642748690931
 PrefabInstance:
   m_ObjectHideFlags: 0

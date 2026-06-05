@@ -4,13 +4,11 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     // ----- FIELDS ----- //
-    [Header("Cooldown")]
-    [SerializeField] private float _attackCooldownTime = 3;
+    [Header("Stats")]
+    [SerializeField] private StatsSO _stats;
 
     [Header("Damage")]
     [SerializeField] private DamageTrigger _damageTrigger;
-    [SerializeField] private float _attackDamage = 1;
-    [SerializeField] private float _damageTriggerTime = 1;
 
     private bool _bIsInCooldown = false;
     private float _waitedCooldownTime = 0;
@@ -35,10 +33,10 @@ public class AttackController : MonoBehaviour
 
     public void ApplyDamageToHealthController(HealthController healthController)
     {
-        if (!healthController)
+        if (!healthController ||!_stats)
             return;
 
-        healthController.TakeDamage(_attackDamage);
+        healthController.TakeDamage(_stats.AttackDamage);
     }
 
     public bool CanAttack()
@@ -64,11 +62,14 @@ public class AttackController : MonoBehaviour
 
     private void Update()
     {
+        if (!_stats)
+            return;
+
         if (_bIsInCooldown)
         {
             _waitedCooldownTime += Time.deltaTime;
 
-            if (_waitedCooldownTime > _attackCooldownTime)
+            if (_waitedCooldownTime > _stats.AttackCooldown)
             {
                 _bIsInCooldown = false;
                 _waitedCooldownTime = 0;
@@ -79,7 +80,7 @@ public class AttackController : MonoBehaviour
         {
             _waitedTriggerTime += Time.deltaTime;
 
-            if (_waitedTriggerTime > _damageTriggerTime)
+            if (_waitedTriggerTime > _stats.AttackDamageTriggerTime)
             {
                 _damageTrigger.DeactivateTrigger();
                 _bIsTriggerEnabled = false;
