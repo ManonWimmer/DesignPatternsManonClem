@@ -25,8 +25,6 @@ public class PlayerMove : Movable
         _undoInput.action.performed += ReceiveUndo;
     }
 
-    
-
     private void OnDestroy()
     {
         _moveInput.action.performed -= ReceiveStartInput;
@@ -51,7 +49,6 @@ public class PlayerMove : Movable
 
         _direction = obj.ReadValue<Vector2>();
 
-        //Move(_direction);
         _animator.SetFloat("WalkSpeed", _moveSpeed);
     }
 
@@ -59,7 +56,6 @@ public class PlayerMove : Movable
     {
         _isMoving = false;
 
-        CancelMove();
         _animator.SetFloat("WalkSpeed", 0);
     }
 

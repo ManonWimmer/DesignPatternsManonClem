@@ -28,8 +28,6 @@ public class Invoker
         {
             _commands.RemoveAt(0);
         }
-        Debug.Log(_commands.Count);
-
     }
 
     public void Undo()
