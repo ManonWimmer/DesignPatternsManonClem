@@ -13,7 +13,6 @@ public class MoveCommandHandler : MonoBehaviour
         _invoker = new Invoker();
 
         _moveable.StartMove += HandleStartMove;
-        //_moveable.StopMove += HandleStopMove;
 
         _moveable.Undo += HandleUndo;
     }
@@ -21,7 +20,6 @@ public class MoveCommandHandler : MonoBehaviour
     private void OnDestroy()
     {
         _moveable.StartMove -= HandleStartMove;
-        //_moveable.StopMove -= HandleStopMove;
     }
 
     private void HandleStartMove(Vector3 position)
@@ -40,6 +38,10 @@ public class MoveCommandHandler : MonoBehaviour
     {
         if (_undoCoroutine == null)
             _undoCoroutine = StartCoroutine(UndoCoroutine());
+        else
+        {
+            Debug.Log("coroutine not null");
+        }
     }
 
     private IEnumerator UndoCoroutine()
@@ -49,6 +51,9 @@ public class MoveCommandHandler : MonoBehaviour
             _invoker.Undo();
             yield return null;
         }
+
+        _undoCoroutine = null;
+        Debug.Log("test");
     }
 
     private void Update()

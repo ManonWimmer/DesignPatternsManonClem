@@ -7565,8 +7565,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9115170152858762924, guid: ac52e43ec14cd4343a29acf3e14153dc,
         type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115170152858762924, guid: ac52e43ec14cd4343a29acf3e14153dc,
+        type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115170152858762924, guid: ac52e43ec14cd4343a29acf3e14153dc,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7895656031303663962, guid: ac52e43ec14cd4343a29acf3e14153dc, type: 3}
@@ -7601,7 +7611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _rb: {fileID: 549710144}
-  _moveSpeed: 250
+  _moveSpeed: 4
   _moveInput: {fileID: 8922215318679132428, guid: 573da436e6176394ea2edebeead16100,
     type: 3}
   _undoInput: {fileID: 4076878478407344193, guid: 573da436e6176394ea2edebeead16100,

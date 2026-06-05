@@ -1,4 +1,6 @@
+using CartoonFX;
 using System;
+using Unity.AppUI.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -9,6 +11,12 @@ public class PlayerMove : Movable
     [SerializeField] private InputActionReference _undoInput;
     [SerializeField] private Animator _animator;
 
+    private bool _isMoving = false;
+
+    private Vector3 _direction;
+
+    public event Action<Vector3> DirectionValueChanged;
+
     private void Awake()
     {
         _moveInput.action.performed += ReceiveStartInput;
@@ -16,6 +24,8 @@ public class PlayerMove : Movable
 
         _undoInput.action.performed += ReceiveUndo;
     }
+
+    
 
     private void OnDestroy()
     {
@@ -25,20 +35,30 @@ public class PlayerMove : Movable
         _undoInput.action.performed -= ReceiveUndo;
     }
 
+    private void FixedUpdate()
+    {
+        if (_isMoving)
+        {
+            Move(_direction);
+            float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
+    }
+
     private void ReceiveStartInput(InputAction.CallbackContext obj)
     {
-        Vector2 direction = obj.ReadValue<Vector2>();
+        _isMoving = true;
 
-        Move(direction);
+        _direction = obj.ReadValue<Vector2>();
 
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-        _animator.SetFloat("WalkSpeed", _moveSpeed * Time.deltaTime);
-
+        //Move(_direction);
+        _animator.SetFloat("WalkSpeed", _moveSpeed);
     }
 
     private void ReceiveStopInput(InputAction.CallbackContext obj)
     {
+        _isMoving = false;
+
         CancelMove();
         _animator.SetFloat("WalkSpeed", 0);
     }
