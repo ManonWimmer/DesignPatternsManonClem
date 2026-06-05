@@ -7612,11 +7612,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _rb: {fileID: 549710144}
   _moveSpeed: 4
+  _animator: {fileID: 549710145}
   _moveInput: {fileID: 8922215318679132428, guid: 573da436e6176394ea2edebeead16100,
     type: 3}
   _undoInput: {fileID: 4076878478407344193, guid: 573da436e6176394ea2edebeead16100,
     type: 3}
-  _animator: {fileID: 549710145}
 --- !u!114 &549710143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14833,6 +14833,16 @@ PrefabInstance:
       propertyPath: _drawDebugGizmo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: 'managedReferences[5541407816413610230]'
@@ -15642,6 +15652,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
@@ -21115,6 +21135,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: 'managedReferences[1244286597767102552]'
@@ -21854,6 +21884,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 4.91
       objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: 'managedReferences[1244286597767102553]'
@@ -22513,6 +22553,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
@@ -29073,6 +29123,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: 'managedReferences[1244286597767102551]'
@@ -29330,6 +29390,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d68d1e38da0311479c8004fc150be37, type: 3}
+--- !u!1 &2088083422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088083424}
+  - component: {fileID: 2088083423}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2088083423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088083422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5398d8eaa98ac4ba23806918c8dd14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoolManager
+  _poolList:
+  - _tag: Enemies
+    _prefab: {fileID: 1979136645898436435, guid: b8e63e1fcdad9425f9577e9775d324fc,
+      type: 3}
+    _size: 10
+--- !u!4 &2088083424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088083422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.40049, y: 1.05, z: 60.82446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2089341881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30188,3 +30297,4 @@ SceneRoots:
   - {fileID: 1036126127}
   - {fileID: 1531933441}
   - {fileID: 1153213683}
+  - {fileID: 2088083424}
