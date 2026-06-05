@@ -9,7 +9,6 @@ public class PlayerMove : Movable
 {
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _undoInput;
-    [SerializeField] private Animator _animator;
 
     private bool _isMoving = false;
 
@@ -37,7 +36,7 @@ public class PlayerMove : Movable
     {
         if (_isMoving)
         {
-            Move(_direction, transform.rotation);
+            Move(_direction);
             float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }
@@ -49,7 +48,7 @@ public class PlayerMove : Movable
 
         _direction = obj.ReadValue<Vector2>();
 
-        _animator.SetFloat("WalkSpeed", _moveSpeed);
+        _currentSpeed = _moveSpeed;
     }
 
     private void ReceiveStopInput(InputAction.CallbackContext obj)
@@ -57,6 +56,8 @@ public class PlayerMove : Movable
         _isMoving = false;
 
         _animator.SetFloat("WalkSpeed", 0);
+
+        _currentSpeed = 0;
     }
 
     private void ReceiveUndo(InputAction.CallbackContext obj)

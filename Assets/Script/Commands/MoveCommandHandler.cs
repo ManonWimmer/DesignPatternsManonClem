@@ -23,9 +23,9 @@ public class MoveCommandHandler : MonoBehaviour
         _moveable.StartMove -= HandleStartMove;
     }
 
-    private void HandleStartMove(Vector3 position, Quaternion rotation)
+    private void HandleStartMove(Vector3 position, Movable movable)
     {
-        Command move = new CommandMove(_moveable.Rb, position, rotation);
+        Command move = new CommandMove(_moveable.Rb, position, movable);
         _invoker.Execute(move);
     }
 
@@ -42,6 +42,7 @@ public class MoveCommandHandler : MonoBehaviour
             _invoker.Undo();
             yield return null;
         }
+        _moveable.ResetAnimation();
         _undoCoroutine = null;
     }
 }
