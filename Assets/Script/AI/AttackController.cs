@@ -1,12 +1,9 @@
+using System;
 using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
     // ----- FIELDS ----- //
-    [Header("Animation")]
-    [SerializeField] private Animator _animator = null;
-    [SerializeField] private string _attackAnimTrigger = "Attack";
-
     [Header("Cooldown")]
     [SerializeField] private float _attackCooldownTime = 3;
 
@@ -20,6 +17,8 @@ public class AttackController : MonoBehaviour
 
     private bool _bIsTriggerEnabled = false;
     private float _waitedTriggerTime = 0;
+
+    public event Action OnAttack;
     // ----- FIELDS ----- //
 
     private void Start()
@@ -52,9 +51,6 @@ public class AttackController : MonoBehaviour
         if (!CanAttack())
             return;
 
-        if (_animator)
-            _animator.SetTrigger(_attackAnimTrigger);
-
         if (_damageTrigger)
         {
             _damageTrigger.ActivateTrigger();
@@ -62,6 +58,8 @@ public class AttackController : MonoBehaviour
         }
 
         _bIsInCooldown = true;
+
+        OnAttack?.Invoke();
     }
 
     private void Update()
