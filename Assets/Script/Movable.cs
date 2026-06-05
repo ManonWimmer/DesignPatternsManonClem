@@ -9,7 +9,6 @@ public class Movable : MonoBehaviour
     public Rigidbody Rb => _rb;
 
     public event Action<Vector3> StartMove;
-    public event Action StopMove;
     public event Action Undo;
 
     private void Start()
@@ -22,11 +21,6 @@ public class Movable : MonoBehaviour
         float speedByTime = _moveSpeed * Time.deltaTime;
         Vector3 targetPosition = new Vector3(transform.position.x + direction.x * speedByTime, transform.position.y, transform.position.z + direction.y * speedByTime);
         StartMove?.Invoke(targetPosition);
-    }
-
-    public virtual void CancelMove()
-    {
-        //StopMove?.Invoke();
     }
 
     public virtual void StartUndo()
