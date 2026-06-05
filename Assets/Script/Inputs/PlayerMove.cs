@@ -37,7 +37,7 @@ public class PlayerMove : Movable
     {
         if (_isMoving)
         {
-            Move(_direction);
+            Move(_direction, transform.rotation);
             float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }

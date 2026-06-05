@@ -23,9 +23,9 @@ public class MoveCommandHandler : MonoBehaviour
         _moveable.StartMove -= HandleStartMove;
     }
 
-    private void HandleStartMove(Vector3 position)
+    private void HandleStartMove(Vector3 position, Quaternion rotation)
     {
-        Command move = new CommandMove(_moveable.Rb, position);
+        Command move = new CommandMove(_moveable.Rb, position, rotation);
         _invoker.Execute(move);
     }
 
