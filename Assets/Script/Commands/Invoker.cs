@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
 public class Invoker
 {
-    private Stack<Command> _commands;
+    int _maxCommandsCount;
+
+    private CustomStack<Command> _commands;
     public int CommandsCount => _commands.Count;
 
-    public Invoker()
+    public Invoker(int maxCommands)
     {
-        _commands = new Stack<Command>();
+        _commands = new CustomStack<Command>();
+        _maxCommandsCount = maxCommands;
     }  
 
     public void Execute(Command command)
@@ -20,6 +24,12 @@ public class Invoker
 
         _commands.Push(command);
         command.Execute();
+        if(_commands.Count > _maxCommandsCount)
+        {
+            _commands.RemoveAt(0);
+        }
+        Debug.Log(_commands.Count);
+
     }
 
     public void Undo()

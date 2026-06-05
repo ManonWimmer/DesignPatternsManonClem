@@ -7630,6 +7630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveCommandHandler
   _moveable: {fileID: 549710142}
+  _maxCommandsCount: 500
 --- !u!54 &549710144 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 9115170152858762924, guid: ac52e43ec14cd4343a29acf3e14153dc,

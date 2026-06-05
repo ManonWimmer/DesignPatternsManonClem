@@ -5,12 +5,13 @@ public class MoveCommandHandler : MonoBehaviour
 {
     [SerializeField] private Movable _moveable;
 
-    private Invoker _invoker;
+    [SerializeField] private Invoker _invoker;
+    [SerializeField] private int _maxCommandsCount;
     private Coroutine _undoCoroutine;
 
     private void Awake()
     {
-        _invoker = new Invoker();
+        _invoker = new Invoker(_maxCommandsCount);
 
         _moveable.StartMove += HandleStartMove;
 
