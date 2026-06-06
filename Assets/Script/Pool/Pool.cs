@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Pool
     public string Tag => _tag;
     public GameObject Prefab => _prefab;
     public int Size => _size;
+    public int Count => _objectPool.Count;
 
     public void CreateObjects()
     {
@@ -25,6 +27,21 @@ public class Pool
             GameObject obj = GameObject.Instantiate(_prefab);
             obj.SetActive(false);
             _objectPool.Enqueue(obj);
+
+            if(obj.TryGetComponent(out IPooledObject pooledObject))
+            {
+                pooledObject.LinkPool(this);
+            }
         }
+    }
+
+    public GameObject GetObject()
+    {
+        return _objectPool.Dequeue();
+    }
+
+    public void AddObject(GameObject obj)
+    {
+        _objectPool.Enqueue(obj);
     }
 }
