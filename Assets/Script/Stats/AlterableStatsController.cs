@@ -1,74 +1,67 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class AlterableStatsController : MonoBehaviour
 {
     // ----- FIELDS ----- //
     [SerializeField] private StatsSO _baseStats;
 
-    private Dictionary<StatType, List<StatModifier>> _dictStatModifiers = new();
+    private Dictionary<StatType, List<StatModifier>> _modifiers = new();
+
+    public event Action<StatType> OnStatChanged;
     // ----- FIELDS ----- //
 
     public float GetStat(StatType stat)
     {
-        float baseVal = GetBaseStat(stat);
-        if (!_dictStatModifiers.TryGetValue(stat, out var list)) 
+        float baseVal = _baseStats.GetBaseValue(stat);
+
+        if (!_modifiers.TryGetValue(stat, out var list) || list.Count == 0)
             return baseVal;
 
-        float flat = list.Where(m => m.Operator == ModifierOperator.Add).Sum(m => m.Value);
-        float percentAdd = list.Where(m => m.Operator == ModifierOperator.PercentAdd).Sum(m => m.Value);
-        float percentMult = list.Where(m => m.Operator == ModifierOperator.PercentMult).Aggregate(1f, (acc, m) => acc * (1 + m.Value));
+        float flat = 0f;
+        float percentAdd = 0f;
+        float percentMult = 1f;
 
-        return (baseVal + flat) * (1 + percentAdd) * percentMult;
+        // Apply modifiers in order
+        foreach (var mod in list)
+        {
+            switch (mod.Operator)
+            {
+                case ModifierOperator.Add: flat += mod.Value; break;
+                case ModifierOperator.PercentAdd: percentAdd += mod.Value; break;
+                case ModifierOperator.PercentMult: percentMult *= (1f + mod.Value); break;
+            }
+        }
+
+        return (baseVal + flat) * (1f + percentAdd) * percentMult;
     }
 
     public void AddModifier(StatModifier mod)
     {
-        if (!_dictStatModifiers.ContainsKey(mod.Stat)) _dictStatModifiers[mod.Stat] = new List<StatModifier>();
-        _dictStatModifiers[mod.Stat].Add(mod);
+        if (!_modifiers.ContainsKey(mod.Stat))
+            _modifiers[mod.Stat] = new List<StatModifier>();
+
+        _modifiers[mod.Stat].Add(mod);
+        OnStatChanged?.Invoke(mod.Stat);
     }
 
     public void RemoveModifier(StatModifier mod)
     {
-        _dictStatModifiers[mod.Stat]?.Remove(mod);
+        if (_modifiers[mod.Stat]?.Remove(mod) == true)
+            OnStatChanged?.Invoke(mod.Stat);
     }
 
     public void ClearStat(StatType stat)
     {
-        _dictStatModifiers[stat]?.Clear();
+        _modifiers[stat]?.Clear();
     }
 
     public void ClearAll()
     {
-        _dictStatModifiers.Clear();
-    }
-
-    private float GetBaseStat(StatType statType)
-    {
-        switch (statType)
-        {
-            case StatType.AttackDamage:
-                return _baseStats.AttackDamage;
-
-            case StatType.AttackSpeed:
-                return _baseStats.AttackSpeed;
-
-            case StatType.AttackCooldown:
-                return _baseStats.AttackCooldown;
-
-            case StatType.AttackDamageTriggerTime:
-                return _baseStats.AttackDamageTriggerTime;
-
-            case StatType.MoveSpeed:
-                return _baseStats.MoveSpeed;
-
-            case StatType.MaxHealth:
-                return _baseStats.MaxHealth;
-
-            default:
-                return 0;
-        }
+        _modifiers.Clear();
     }
 }
 
@@ -100,7 +93,7 @@ public class StatModifier
     public float Value;
     // ----- FIELDS ----- //
 
-    public StatModifier(StatType stat, ModifierOperator op, float value, object source = null)
+    public StatModifier(StatType stat, ModifierOperator op, float value)
     {
         Stat = stat; 
         Operator = op; 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatsSO", menuName = "Scriptable Objects/StatsSO")]
@@ -16,11 +17,27 @@ public class StatsSO : ScriptableObject
     [Header("Health")]
     [SerializeField] private float _maxHealth = 3;
 
-    public float AttackDamage { get => _attackDamage; set => _attackDamage = value; }
-    public float AttackSpeed { get => _attackSpeed; set => _attackSpeed = value; }
-    public float AttackCooldown { get => _attackCooldown; set => _attackCooldown = value; }
-    public float AttackDamageTriggerTime { get => _attackDamageTriggerTime; set => _attackDamageTriggerTime = value; }
-    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
-    public float MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+    private Dictionary<StatType, float> _baseValues;
     // ----- FIELDS ----- //
+
+    public void Initialize()
+    {
+        _baseValues = new Dictionary<StatType, float>
+        {
+            { StatType.AttackDamage,         _attackDamage         },
+            { StatType.AttackSpeed,          _attackSpeed          },
+            { StatType.AttackCooldown,       _attackCooldown       },
+            { StatType.AttackDamageTriggerTime, _attackDamageTriggerTime },
+            { StatType.MoveSpeed,            _moveSpeed            },
+            { StatType.MaxHealth,            _maxHealth            },
+        };
+    }
+
+    public float GetBaseValue(StatType stat)
+    {
+        if (_baseValues == null) 
+            Initialize();
+
+        return _baseValues.TryGetValue(stat, out float val) ? val : 0f;
+    }
 }

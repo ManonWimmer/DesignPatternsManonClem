@@ -467,8 +467,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _stats
       value: 
-      objectReference: {fileID: 11400000, guid: 13ec775dfd40bdb4a89c26a0887db6d2,
-        type: 2}
+      objectReference: {fileID: 8293190906657914499}
     - target: {fileID: 2784793763340203397, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: _damageTrigger
@@ -508,8 +507,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _stats
       value: 
-      objectReference: {fileID: 11400000, guid: 13ec775dfd40bdb4a89c26a0887db6d2,
-        type: 2}
+      objectReference: {fileID: 8293190906657914499}
     - target: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_Name
@@ -660,3 +658,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc543a485fcd5242bc768f2cf1072a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackController
+--- !u!114 &8293190906657914499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4593159169097382140, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5524079308583765631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae258360d9c262041b2bface88066da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlterableStatsController

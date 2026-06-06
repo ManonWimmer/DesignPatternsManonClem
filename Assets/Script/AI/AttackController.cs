@@ -5,16 +5,14 @@ public class AttackController : MonoBehaviour
 {
     // ----- FIELDS ----- //
     [Header("Stats")]
-    [SerializeField] private StatsSO _stats;
+    [SerializeField] private AlterableStatsController _stats;
 
     [Header("Damage")]
     [SerializeField] private DamageTrigger _damageTrigger;
 
     private bool _bIsInCooldown = false;
     private float _waitedCooldownTime = 0;
-
-    private bool _bIsTriggerEnabled = false;
-    private float _waitedTriggerTime = 0;
+    private float _currentCooldownDuration = 0;
 
     public event Action OnAttack;
     // ----- FIELDS ----- //
@@ -36,7 +34,7 @@ public class AttackController : MonoBehaviour
         if (!healthController ||!_stats)
             return;
 
-        healthController.TakeDamage(_stats.AttackDamage);
+        healthController.TakeDamage(_stats.GetStat(StatType.AttackDamage));
     }
 
     public bool CanAttack()
@@ -50,12 +48,10 @@ public class AttackController : MonoBehaviour
             return;
 
         if (_damageTrigger)
-        {
-            _damageTrigger.ActivateTrigger();
-            _bIsTriggerEnabled = true;
-        }
+            _damageTrigger.ActivateTrigger(_stats.GetStat(StatType.AttackDamageTriggerTime));
 
         _bIsInCooldown = true;
+        _currentCooldownDuration = _stats.GetStat(StatType.AttackCooldown);
 
         OnAttack?.Invoke();
     }
@@ -69,22 +65,10 @@ public class AttackController : MonoBehaviour
         {
             _waitedCooldownTime += Time.deltaTime;
 
-            if (_waitedCooldownTime > _stats.AttackCooldown)
+            if (_waitedCooldownTime > _currentCooldownDuration)
             {
                 _bIsInCooldown = false;
                 _waitedCooldownTime = 0;
-            }
-        }
-        
-        if (_bIsTriggerEnabled && _damageTrigger)
-        {
-            _waitedTriggerTime += Time.deltaTime;
-
-            if (_waitedTriggerTime > _stats.AttackDamageTriggerTime)
-            {
-                _damageTrigger.DeactivateTrigger();
-                _bIsTriggerEnabled = false;
-                _waitedTriggerTime = 0;
             }
         }
     }
