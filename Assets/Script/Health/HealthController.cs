@@ -5,7 +5,7 @@ public class HealthController : MonoBehaviour, IDamageable
 {
     // ----- FIELDS ----- //
     [Header("Stats")]
-    [SerializeField] private StatsSO _stats;
+    [SerializeField] private AlterableStatsController _stats;
 
     private float _health;
     private float _maxHealth;
@@ -22,9 +22,17 @@ public class HealthController : MonoBehaviour, IDamageable
         if (!_stats)
             return;
 
-        _maxHealth = _stats.MaxHealth;
-        _health = _maxHealth;
+        _stats.OnStatChanged += HandleStatChanged;
+        RefreshMaxHealth();
+
         OnHealthChanged?.Invoke(_health, _maxHealth);
+    }
+
+    private void OnDestroy()
+    {
+        if (!_stats) return;
+
+        _stats.OnStatChanged -= HandleStatChanged;
     }
 
     public void TakeDamage(float damage)
@@ -39,5 +47,24 @@ public class HealthController : MonoBehaviour, IDamageable
         }
 
         OnHealthChanged?.Invoke(_health, _maxHealth);
+    }
+
+    private void HandleStatChanged(StatType stat)
+    {
+        if (stat != StatType.MaxHealth) 
+            return;
+
+        float newMax = _stats.GetStat(StatType.MaxHealth);
+        float delta = newMax - _maxHealth;
+        _maxHealth = newMax;
+        _health = Mathf.Clamp(_health + delta, 0f, _maxHealth);
+
+        OnHealthChanged?.Invoke(_health, _maxHealth);
+    }
+
+    private void RefreshMaxHealth()
+    {
+        _maxHealth = _stats.GetStat(StatType.MaxHealth);
+        _health = _maxHealth;
     }
 }

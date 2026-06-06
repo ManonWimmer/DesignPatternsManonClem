@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,8 +19,10 @@ public class DamageTrigger : MonoBehaviour
         DeactivateTrigger();
     }
 
-    public void ActivateTrigger()
+    public void ActivateTrigger(float duration)
     {
+        _damaged.Clear();
+
         if (!_trigger)
         {
             Debug.LogError("Trigger null in damage trigger");
@@ -27,6 +30,13 @@ public class DamageTrigger : MonoBehaviour
         }
 
         _trigger.enabled = true;
+        StartCoroutine(AutoDeactivate(duration));
+    }
+
+    private IEnumerator AutoDeactivate(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        DeactivateTrigger();
     }
 
     public void DeactivateTrigger()
@@ -38,9 +48,7 @@ public class DamageTrigger : MonoBehaviour
         }
 
         _trigger.enabled = false;
-
-        if (_damaged.Count > 0)
-            _damaged.Clear();
+        _damaged.Clear();
     }
 
     private void OnTriggerEnter(Collider other)
