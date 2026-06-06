@@ -38,12 +38,13 @@ public class PlayerMove : Movable
         {
             Move(_direction);
             float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, angle, 0);
+            _gameObjectToMove.transform.rotation = Quaternion.Euler(0, angle, 0);
         }
     }
 
     private void ReceiveStartInput(InputAction.CallbackContext obj)
     {
+        print("receive input");
         _isMoving = true;
 
         _direction = obj.ReadValue<Vector2>();

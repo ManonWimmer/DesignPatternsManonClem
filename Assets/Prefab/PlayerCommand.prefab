@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 2221839628788110084}
   - component: {fileID: 9115170152858762924}
   - component: {fileID: 3854501439541411428}
+  - component: {fileID: 4664265266859198990}
+  - component: {fileID: 7575848631254687366}
   m_Layer: 0
   m_Name: PlayerCommand
   m_TagString: Untagged
@@ -270,9 +272,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3854501439541411428
 MonoBehaviour:
@@ -305,6 +307,40 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4664265266859198990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3563806c0ff143e43a549a44bddf8887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
+  _rb: {fileID: 9115170152858762924}
+  _moveSpeed: 4
+  _animator: {fileID: 4017012815927045721}
+  _gameObjectToMove: {fileID: 6331558144665418028}
+  _moveInput: {fileID: 8922215318679132428, guid: 573da436e6176394ea2edebeead16100,
+    type: 3}
+  _undoInput: {fileID: 4076878478407344193, guid: 573da436e6176394ea2edebeead16100,
+    type: 3}
+--- !u!114 &7575848631254687366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e6671079921c042b61401227cc5f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveCommandHandler
+  _moveable: {fileID: 4664265266859198990}
+  _maxCommandsCount: 500
 --- !u!1001 &4809541577718529553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -455,6 +491,12 @@ PrefabInstance:
 --- !u!4 &625343852832257305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8640538035317054127, guid: d035779bf520f38499966b00a58bd75f,
+    type: 3}
+  m_PrefabInstance: {fileID: 9170720254062063542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4017012815927045721 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5259002207622955503, guid: d035779bf520f38499966b00a58bd75f,
     type: 3}
   m_PrefabInstance: {fileID: 9170720254062063542}
   m_PrefabAsset: {fileID: 0}
