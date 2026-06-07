@@ -8,6 +8,7 @@ public class PooledMinion : MonoBehaviour, IPooledObject
     
     private Pool _pool;
 
+    public Pool Pool => _pool;
 
     private void Start()
     {
