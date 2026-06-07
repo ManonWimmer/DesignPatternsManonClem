@@ -54,9 +54,11 @@ public class PlayerMove : Movable
 
     private void ReceiveStopInput(InputAction.CallbackContext obj)
     {
+        print("stop input");
         _isMoving = false;
 
         _currentSpeed = 0;
+        ResetAnimation();
     }
 
     private void ReceiveUndo(InputAction.CallbackContext obj)

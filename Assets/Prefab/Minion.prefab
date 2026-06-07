@@ -435,7 +435,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _damageTrigger
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8847988476363925778}
     - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: _animator
@@ -589,6 +589,8 @@ MonoBehaviour:
   - rid: 5541407816413610180
   - rid: 5541407839150932079
   - rid: 5541407859970933181
+  - rid: 3041661646520713344
+  - rid: 3041661646520713345
   m_OriginalGraph: {fileID: 6097892063452146105, guid: 70caa7f01a4c9ef4a93b64424a153883,
     type: 2}
   m_IsInitialised: 0
@@ -596,6 +598,24 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3041661646520713344
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6595608045348734468
+          m_Value1: 15357314887787542481
+        Name: AttackDistance
+        m_Value: 3
+    - rid: 3041661646520713345
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17786585841194405452
+          m_Value1: 4390224541507603966
+        Name: LosePlayerDistance
+        m_Value: 10
     - rid: 5541407816413610180
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
@@ -684,3 +704,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae258360d9c262041b2bface88066da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlterableStatsController
+--- !u!114 &8847988476363925778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3919018427600301933, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5524079308583765631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a5b55d5508fa48a9218a1e00b357f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTrigger

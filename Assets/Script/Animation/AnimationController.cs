@@ -36,6 +36,7 @@ public class AnimationController : MonoBehaviour
         {
             _movable.OnSpeedChanged += OnSpeedChanged;
             _movable.OnMoveAnimationRequested += OnMoveAnimationRequested;
+            OnSpeedChanged(0);
         }
     }
 

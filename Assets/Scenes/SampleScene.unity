@@ -15027,6 +15027,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
+      propertyPath: 'managedReferences[3041661646520713342]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
+        mscorlib]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: 'managedReferences[3041661646520713343]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
+        mscorlib]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
       propertyPath: 'managedReferences[5541407816413610230]'
       value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib]]'
@@ -15051,6 +15063,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
+      propertyPath: managedReferences[3041661646520713342].Name
+      value: AttackDistance
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713343].Name
+      value: LosePlayerDistance
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
       propertyPath: managedReferences[5541407816413610230].Name
       value: PatrolPoints
       objectReference: {fileID: 0}
@@ -15072,7 +15094,17 @@ PrefabInstance:
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713342].m_Value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713343].m_Value
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
@@ -15099,6 +15131,36 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[3]'
       value: 5541407859970933182
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[4]'
+      value: 3041661646520713342
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[5]'
+      value: 3041661646520713343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713342].GUID.m_Value0
+      value: 6595608045348734468
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713342].GUID.m_Value1
+      value: 15357314887787542481
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713343].GUID.m_Value0
+      value: 17786585841194405452
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: managedReferences[3041661646520713343].GUID.m_Value1
+      value: 4390224541507603966
       objectReference: {fileID: 0}
     - target: {fileID: 5242587985457320071, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}

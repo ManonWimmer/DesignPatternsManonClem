@@ -42,7 +42,7 @@ public class Movable : MonoBehaviour
 
     public void ResetAnimation()
     {
-        OnSpeedChanged?.Invoke(_currentSpeed);
+        OnSpeedChanged?.Invoke(0);
     }
 
     public void PlayMoveAnimation(float speed, float reverse)

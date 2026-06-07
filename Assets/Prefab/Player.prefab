@@ -328,10 +328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimationController
   _animator: {fileID: 4017012815927045721}
   _healthController: {fileID: 5915710732848816429}
+  _hitAnimTrigger: Hit
   _dieAnimTrigger: Die
   _attackController: {fileID: 2784793763340203397}
   _attackAnimTrigger: Attack
-  _movable: {fileID: 0}
+  _movable: {fileID: 4195671662575257851}
   _walkSpeedParam: WalkSpeed
   _reverseParam: Reverse
 --- !u!1 &4397832111335853448

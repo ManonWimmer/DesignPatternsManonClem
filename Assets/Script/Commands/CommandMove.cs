@@ -23,13 +23,11 @@ public class CommandMove : Command
     {
         _rb.MovePosition(_position);
         _rb.MoveRotation(_rotation);
-        _movable.PlayMoveAnimation(_currentSpeed, 1f);
     }
 
     public override void Undo()
     {
         _rb.MovePosition(_position);
         _rb.MoveRotation(_rotation);
-        _movable.PlayMoveAnimation(_currentSpeed, -1f); // reverse
     }
 }

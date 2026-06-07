@@ -37,12 +37,15 @@ public class MoveCommandHandler : MonoBehaviour
 
     private IEnumerator UndoCoroutine()
     {
-        while(_invoker.CommandsCount > 0)
+        _moveable.PlayMoveAnimation(_moveable.MoveSpeed, -1f); // reverse ON
+
+        while (_invoker.CommandsCount > 0)
         {
             _invoker.Undo();
             yield return null;
         }
-        _moveable.ResetAnimation();
+
+        _moveable.PlayMoveAnimation(0f, 1f); // stop + reset reverse
         _undoCoroutine = null;
     }
 }
