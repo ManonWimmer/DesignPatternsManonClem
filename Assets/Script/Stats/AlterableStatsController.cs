@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AlterableStatsController : MonoBehaviour
 {
@@ -16,27 +17,22 @@ public class AlterableStatsController : MonoBehaviour
 
     public float GetStat(StatType stat)
     {
-        float baseVal = _baseStats.GetBaseValue(stat);
+        float value = _baseStats.GetBaseValue(stat);
 
         if (!_modifiers.TryGetValue(stat, out var list) || list.Count == 0)
-            return baseVal;
-
-        float flat = 0f;
-        float percentAdd = 0f;
-        float percentMult = 1f;
+            return value;
 
         // Apply modifiers in order
         foreach (var mod in list)
         {
             switch (mod.Operator)
             {
-                case ModifierOperator.Add: flat += mod.Value; break;
-                case ModifierOperator.PercentAdd: percentAdd += mod.Value; break;
-                case ModifierOperator.PercentMult: percentMult *= (1f + mod.Value); break;
+                case ModifierOperator.Add: value += mod.Value; break;
+                case ModifierOperator.PercentAdd: value *= (1f + mod.Value); break;
+                case ModifierOperator.PercentMult: value *= (1f + mod.Value); break;
             }
         }
-
-        return (baseVal + flat) * (1f + percentAdd) * percentMult;
+        return value;
     }
 
     public void AddModifier(StatModifier mod)
