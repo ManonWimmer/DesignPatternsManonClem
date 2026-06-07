@@ -11766,6 +11766,11 @@ PrefabInstance:
       objectReference: {fileID: 1962739208}
     - target: {fileID: 6357327414366965676, guid: cd3627790ebc503438e1315df84291dc,
         type: 3}
+      propertyPath: _poolList.Array.data[0]._size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357327414366965676, guid: cd3627790ebc503438e1315df84291dc,
+        type: 3}
       propertyPath: _poolList.Array.data[0]._prefab
       value: 
       objectReference: {fileID: 1979136645898436435, guid: b8e63e1fcdad9425f9577e9775d324fc,
@@ -14990,6 +14995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minion
       objectReference: {fileID: 0}
+    - target: {fileID: 1979136645898436435, guid: b8e63e1fcdad9425f9577e9775d324fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3483730135935591307, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: _drawDebugGizmo
@@ -14998,12 +15008,12 @@ PrefabInstance:
     - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4203696499865734252, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4283482822444117974, guid: b8e63e1fcdad9425f9577e9775d324fc,
         type: 3}
