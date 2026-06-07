@@ -17,6 +17,8 @@ public class HealthUI : MonoBehaviour
     {
         if (_healthController)
             _healthController.OnHealthChanged += OnHealthChanged;
+
+        SetupHealth();
     }
 
     private void OnDestroy()
@@ -29,5 +31,10 @@ public class HealthUI : MonoBehaviour
     {
         _healthSlider.value = currentHealth / maxHealth;
         _healthTxt.text = $"{currentHealth} / {maxHealth}";
+    }
+
+    private void SetupHealth()
+    {
+        OnHealthChanged(_healthController.Health, _healthController.MaxHealth);
     }
 }

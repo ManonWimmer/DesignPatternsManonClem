@@ -17,14 +17,17 @@ public class HealthController : MonoBehaviour, IDamageable
     public event Action OnDie;
     // ----- FIELDS ----- //
 
+    private void Awake()
+    {
+        RefreshMaxHealth();
+    }
+
     private void Start()
     {
         if (!_stats)
             return;
 
         _stats.OnStatChanged += HandleStatChanged;
-        RefreshMaxHealth();
-
         OnHealthChanged?.Invoke(_health, _maxHealth);
     }
 

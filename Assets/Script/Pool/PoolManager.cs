@@ -28,11 +28,13 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void SpawnFromPool(string tag, Vector3 position, Quaternion Rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion Rotation)
     {
+        print("spawn");
         if (!_poolDict.ContainsKey(tag))
         {
             Debug.LogWarning($"Pool with {tag} doesn't exist.");
+            return null;
         }
 
         if (_poolDict[tag].Count > 0)
@@ -44,7 +46,10 @@ public class PoolManager : MonoBehaviour
             obj.transform.rotation = Rotation;
 
             SetupObject(obj);
+            return obj;
         }
+
+        return null;
     }
 
     private void SetupObject(GameObject obj)
