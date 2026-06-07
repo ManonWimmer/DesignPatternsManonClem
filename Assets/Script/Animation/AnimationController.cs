@@ -13,6 +13,11 @@ public class AnimationController : MonoBehaviour
     [Header("Attack")]
     [SerializeField] private AttackController _attackController = null;
     [SerializeField] private string _attackAnimTrigger = "Attack";
+
+    [Header("Move")]
+    [SerializeField] private Movable _movable = null;
+    [SerializeField] private string _walkSpeedParam = "WalkSpeed";
+    [SerializeField] private string _reverseParam = "Reverse";
     // ----- FIELDS ----- //
 
     private void Start()
@@ -22,6 +27,12 @@ public class AnimationController : MonoBehaviour
 
         if (_attackController)
             _attackController.OnAttack += OnAttack;
+
+        if (_movable)
+        {
+            _movable.OnSpeedChanged += OnSpeedChanged;
+            _movable.OnMoveAnimationRequested += OnMoveAnimationRequested;
+        }
     }
 
     private void OnDestroy()
@@ -30,11 +41,19 @@ public class AnimationController : MonoBehaviour
             _healthController.OnDie -= OnDie;
 
         if (_attackController)
-            _attackController.OnAttack += OnAttack;
+            _attackController.OnAttack -= OnAttack;
+
+        if (_movable)
+        {
+            _movable.OnSpeedChanged -= OnSpeedChanged;
+            _movable.OnMoveAnimationRequested -= OnMoveAnimationRequested;
+        }
     }
 
     private void OnAttack()
     {
+        print("on attack anim");
+
         if (!_animator)
             return; 
 
@@ -47,5 +66,22 @@ public class AnimationController : MonoBehaviour
             return;
 
         _animator.SetTrigger(_dieAnimTrigger);
+    }
+
+    private void OnSpeedChanged(float speed)
+    {
+        if (!_animator) 
+            return;
+
+        _animator.SetFloat(_walkSpeedParam, speed);
+    }
+
+    private void OnMoveAnimationRequested(float speed, float reverse)
+    {
+        if (!_animator) 
+            return;
+
+        _animator.SetFloat(_reverseParam, reverse);
+        _animator.SetFloat(_walkSpeedParam, speed);
     }
 }

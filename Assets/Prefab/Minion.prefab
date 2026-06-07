@@ -66,73 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d6981d1afede546b9486fdc610605c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphCollisionEvents
---- !u!1 &8756869048247293280
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2099416917123017479}
-  - component: {fileID: 9209034409429106195}
-  - component: {fileID: 6009445410087254173}
-  m_Layer: 0
-  m_Name: WeaponHitBox
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2099416917123017479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8756869048247293280}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 599604674192940499}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9209034409429106195
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8756869048247293280}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 2, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6009445410087254173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8756869048247293280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd3a5b55d5508fa48a9218a1e00b357f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageTrigger
-  _trigger: {fileID: 9209034409429106195}
 --- !u!1 &8953510066471778262
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +435,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _damageTrigger
       value: 
-      objectReference: {fileID: 6009445410087254173}
+      objectReference: {fileID: 0}
     - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: _animator
@@ -603,6 +536,7 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 8345267914332379110, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6944734866117476437, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
     - {fileID: 4397832111335853448, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
@@ -621,10 +555,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3599550589941050029}
-    - targetCorrespondingSourceObject: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2099416917123017479}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
@@ -635,12 +565,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 350010195374736434}
   m_SourcePrefab: {fileID: 100100000, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
---- !u!4 &599604674192940499 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 5524079308583765631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1979136645898436435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,

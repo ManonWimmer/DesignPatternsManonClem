@@ -47,6 +47,8 @@ public class AttackController : MonoBehaviour
         if (!CanAttack())
             return;
 
+        print("attack");
+
         if (_damageTrigger)
             _damageTrigger.ActivateTrigger(_stats.GetStat(StatType.AttackDamageTriggerTime));
 

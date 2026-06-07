@@ -56,8 +56,6 @@ public class PlayerMove : Movable
     {
         _isMoving = false;
 
-        _animator.SetFloat("WalkSpeed", 0);
-
         _currentSpeed = 0;
     }
 

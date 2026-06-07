@@ -109,6 +109,15 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""d319bd7d-c840-4b0a-9f04-1b854bcffa65"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -177,6 +186,17 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Undo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67837c99-dc12-43d7-a3a8-d3c9abd01ca4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +207,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Undo = m_Gameplay.FindAction("Undo", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
     }
 
     ~@IA_Player()
@@ -269,6 +290,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Undo;
+    private readonly InputAction m_Gameplay_Attack;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -288,6 +310,10 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Undo".
         /// </summary>
         public InputAction @Undo => m_Wrapper.m_Gameplay_Undo;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Attack".
+        /// </summary>
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -320,6 +346,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Undo.started += instance.OnUndo;
             @Undo.performed += instance.OnUndo;
             @Undo.canceled += instance.OnUndo;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         /// <summary>
@@ -337,6 +366,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Undo.started -= instance.OnUndo;
             @Undo.performed -= instance.OnUndo;
             @Undo.canceled -= instance.OnUndo;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         /// <summary>
@@ -391,5 +423,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUndo(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
