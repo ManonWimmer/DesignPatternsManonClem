@@ -30,6 +30,7 @@ public class Pool
 
             if(obj.TryGetComponent(out IPooledObject pooledObject))
             {
+                Debug.Log("Linked to pool");
                 pooledObject.LinkPool(this);
             }
         }

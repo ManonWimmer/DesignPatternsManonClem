@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
 public interface IPooledObject
 {
-    void SendObjectToPool();
+    IEnumerator SendObjectToPool();
     void LinkPool(Pool pool);
 }

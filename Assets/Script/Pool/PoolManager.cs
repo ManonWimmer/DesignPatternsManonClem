@@ -30,7 +30,6 @@ public class PoolManager : MonoBehaviour
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion Rotation)
     {
-        print("spawn");
         if (!_poolDict.ContainsKey(tag))
         {
             Debug.LogWarning($"Pool with {tag} doesn't exist.");
@@ -39,6 +38,8 @@ public class PoolManager : MonoBehaviour
 
         if (_poolDict[tag].Count > 0)
         {
+            print("spawn");
+
             GameObject obj = _poolDict[tag].GetObject();
 
             obj.SetActive(true);

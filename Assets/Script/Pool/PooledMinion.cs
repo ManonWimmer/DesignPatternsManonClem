@@ -1,15 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class PooledMinion : MonoBehaviour, IPooledObject
 {
     [SerializeField] private HealthController _healthController;
+    [SerializeField] private float _timeBeforeReturningToPool;
     
     private Pool _pool;
 
 
-    private void Awake()
+    private void Start()
     {
-        _healthController.OnDie += SendObjectToPool;
+        _healthController.OnDie += StartReturnToPool;
     }
 
     public void LinkPool(Pool pool)
@@ -17,10 +19,16 @@ public class PooledMinion : MonoBehaviour, IPooledObject
         _pool = pool;
     }
 
-    public void SendObjectToPool()
+    private void StartReturnToPool()
     {
+        StartCoroutine(SendObjectToPool());
+    }
+
+    public IEnumerator SendObjectToPool()
+    {
+        yield return new WaitForSeconds(_timeBeforeReturningToPool);
         _pool.AddObject(gameObject);
         gameObject.SetActive(false);
-        _healthController.Health = _healthController.MaxHealth;
+        _healthController.RefreshMaxHealth();
     }
 }

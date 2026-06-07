@@ -70,9 +70,10 @@ public class HealthController : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(_health, _maxHealth);
     }
 
-    private void RefreshMaxHealth()
+    public void RefreshMaxHealth()
     {
         _maxHealth = _stats.GetStat(StatType.MaxHealth);
         _health = _maxHealth;
+        OnHealthChanged?.Invoke(_health, _maxHealth);
     }
 }

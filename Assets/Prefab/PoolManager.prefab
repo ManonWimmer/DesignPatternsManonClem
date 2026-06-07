@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PoolManager
   _poolList:
   - _tag: Enemies
-    _prefab: {fileID: 1515606350999549121, guid: 870559c661c05ed429323dc019d2a9fc,
+    _prefab: {fileID: 1979136645898436435, guid: b8e63e1fcdad9425f9577e9775d324fc,
       type: 3}
     _size: 2
   _patrolPoints:

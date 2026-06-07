@@ -438,6 +438,11 @@ PrefabInstance:
       objectReference: {fileID: 8847988476363925778}
     - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
+      propertyPath: _movable
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857291802155744162, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
       propertyPath: _animator
       value: 
       objectReference: {fileID: 5389989245478962096}
@@ -656,6 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PooledMinion
   _healthController: {fileID: 2211737237510678354}
+  _timeBeforeReturningToPool: 5
 --- !u!114 &2211737237510678354 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5915710732848816429, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
