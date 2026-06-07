@@ -6364,6 +6364,11 @@ PrefabInstance:
       propertyPath: '_patrolPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 1962739208}
+    - target: {fileID: 6357327414366965676, guid: cd3627790ebc503438e1315df84291dc,
+        type: 3}
+      propertyPath: _poolList.Array.data[0]._size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9743,7 +9748,7 @@ PrefabInstance:
     - target: {fileID: 4888203204695997749, guid: 184fe771a0fdcc348a90ae6f6ca7cf88,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.746704
+      value: 26.746704
       objectReference: {fileID: 0}
     - target: {fileID: 4888203204695997749, guid: 184fe771a0fdcc348a90ae6f6ca7cf88,
         type: 3}

@@ -19,6 +19,12 @@ public class PooledMinion : MonoBehaviour, IPooledObject
         _pool = pool;
     }
 
+
+    private void Update()
+    {
+        //Debug.Log(transform.position);
+    }
+
     private void StartReturnToPool()
     {
         StartCoroutine(SendObjectToPool());
