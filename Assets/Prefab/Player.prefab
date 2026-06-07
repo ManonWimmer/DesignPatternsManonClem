@@ -332,7 +332,7 @@ MonoBehaviour:
   _dieAnimTrigger: Die
   _attackController: {fileID: 2784793763340203397}
   _attackAnimTrigger: Attack
-  _movable: {fileID: 4195671662575257851}
+  _movable: {fileID: 0}
   _walkSpeedParam: WalkSpeed
   _reverseParam: Reverse
 --- !u!1 &4397832111335853448
