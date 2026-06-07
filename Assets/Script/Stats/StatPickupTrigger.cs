@@ -15,9 +15,9 @@ public class StatPickupTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        AlterableStatsController stats = other.GetComponentInParent<AlterableStatsController>();
-        StatsProxy statsProxy = other.GetComponentInParent<StatsProxy>();
-        if (!stats && !statsProxy) 
+        StatsProxy statsProxy = other.GetComponent<StatsProxy>();
+        AlterableStatsController stats = null;
+        if (!statsProxy) 
             return;
 
         if (statsProxy)
