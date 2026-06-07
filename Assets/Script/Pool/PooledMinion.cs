@@ -4,6 +4,7 @@ using UnityEngine;
 public class PooledMinion : MonoBehaviour, IPooledObject
 {
     [SerializeField] private HealthController _healthController;
+    [SerializeField] private BehaviorController _behaviorController;
     [SerializeField] private float _timeBeforeReturningToPool;
     
     private Pool _pool;
@@ -37,5 +38,8 @@ public class PooledMinion : MonoBehaviour, IPooledObject
         _pool.AddObject(gameObject);
         gameObject.SetActive(false);
         _healthController.RefreshMaxHealth();
+
+        if (_behaviorController)
+            _behaviorController.RestartBehavior();
     }
 }

@@ -11767,7 +11767,7 @@ PrefabInstance:
     - target: {fileID: 6357327414366965676, guid: cd3627790ebc503438e1315df84291dc,
         type: 3}
       propertyPath: _poolList.Array.data[0]._size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6357327414366965676, guid: cd3627790ebc503438e1315df84291dc,
         type: 3}

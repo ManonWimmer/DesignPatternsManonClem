@@ -635,6 +635,7 @@ MonoBehaviour:
     type: 3}
   _undoInput: {fileID: 4076878478407344193, guid: 573da436e6176394ea2edebeead16100,
     type: 3}
+  _healthController: {fileID: 5915710732848816429}
 --- !u!1 &7685718800755207818
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackController
   _stats: {fileID: 4593159169097382140}
   _damageTrigger: {fileID: 3919018427600301933}
+  _healthController: {fileID: 5915710732848816429}
 --- !u!114 &8345267914332379110
 MonoBehaviour:
   m_ObjectHideFlags: 0

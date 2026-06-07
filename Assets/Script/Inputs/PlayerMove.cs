@@ -10,7 +10,11 @@ public class PlayerMove : Movable
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _undoInput;
 
+    [Header("Check is dead")]
+    [SerializeField] private HealthController _healthController;
+
     private bool _isMoving = false;
+    private bool _isDead = false;
 
     private Vector3 _direction;
 
@@ -22,6 +26,9 @@ public class PlayerMove : Movable
         _moveInput.action.canceled += ReceiveStopInput;
 
         _undoInput.action.performed += ReceiveUndo;
+
+        if (_healthController)
+            _healthController.OnDie += HandleDeath;
     }
 
     private void OnDestroy()
@@ -30,10 +37,21 @@ public class PlayerMove : Movable
         _moveInput.action.canceled -= ReceiveStopInput;
 
         _undoInput.action.performed -= ReceiveUndo;
+
+        if (_healthController)
+            _healthController.OnDie -= HandleDeath;
+    }
+
+    private void HandleDeath()
+    {
+        _isDead = true;
     }
 
     private void FixedUpdate()
     {
+        if (_isDead)
+            return;
+
         if (_isMoving)
         {
             Move(_direction);
@@ -44,6 +62,9 @@ public class PlayerMove : Movable
 
     private void ReceiveStartInput(InputAction.CallbackContext obj)
     {
+        if (_isDead)
+            return;
+
         print("receive input");
         _isMoving = true;
 
@@ -54,6 +75,9 @@ public class PlayerMove : Movable
 
     private void ReceiveStopInput(InputAction.CallbackContext obj)
     {
+        if (_isDead)
+            return;
+
         print("stop input");
         _isMoving = false;
 
@@ -63,6 +87,9 @@ public class PlayerMove : Movable
 
     private void ReceiveUndo(InputAction.CallbackContext obj)
     {
+        if (_isDead)
+            return;
+
         StartUndo();
     }
 }

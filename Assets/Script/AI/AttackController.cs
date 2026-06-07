@@ -10,9 +10,14 @@ public class AttackController : MonoBehaviour
     [Header("Damage")]
     [SerializeField] private DamageTrigger _damageTrigger;
 
-    private bool _bIsInCooldown = false;
+    [Header("Check is dead")]
+    [SerializeField] private HealthController _healthController;
+
+    private bool _isInCooldown = false;
     private float _waitedCooldownTime = 0;
     private float _currentCooldownDuration = 0;
+
+    private bool _canAttack = true;
 
     public event Action OnAttack;
     // ----- FIELDS ----- //
@@ -21,12 +26,23 @@ public class AttackController : MonoBehaviour
     {
         if (_damageTrigger)
             _damageTrigger.OnDamageableHit += ApplyDamage;
+
+        if (_healthController)
+            _healthController.OnDie += HandleDeath;
     }
 
     private void OnDestroy()
     {
         if (_damageTrigger)
             _damageTrigger.OnDamageableHit -= ApplyDamage;
+
+        if (_healthController)
+            _healthController.OnDie -= HandleDeath;
+    }
+
+    private void HandleDeath()
+    {
+        _canAttack = false;
     }
 
     public void ApplyDamage(IDamageable damageable)
@@ -39,7 +55,7 @@ public class AttackController : MonoBehaviour
 
     public bool CanAttack()
     {
-        return !_bIsInCooldown;
+        return !_isInCooldown && _canAttack;
     }
 
     public void Attack()
@@ -52,7 +68,7 @@ public class AttackController : MonoBehaviour
         if (_damageTrigger)
             _damageTrigger.ActivateTrigger(_stats.GetStat(StatType.AttackDamageTriggerTime));
 
-        _bIsInCooldown = true;
+        _isInCooldown = true;
         _currentCooldownDuration = _stats.GetStat(StatType.AttackCooldown);
 
         OnAttack?.Invoke();
@@ -63,13 +79,13 @@ public class AttackController : MonoBehaviour
         if (!_stats)
             return;
 
-        if (_bIsInCooldown)
+        if (_isInCooldown)
         {
             _waitedCooldownTime += Time.deltaTime;
 
             if (_waitedCooldownTime > _currentCooldownDuration)
             {
-                _bIsInCooldown = false;
+                _isInCooldown = false;
                 _waitedCooldownTime = 0;
             }
         }
