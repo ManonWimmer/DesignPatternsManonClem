@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider))]
@@ -10,9 +11,9 @@ public class DamageTrigger : MonoBehaviour
     // ----- FIELDS ----- //
     [SerializeField] private Collider _trigger = null;
 
-    private List<HealthController> _damaged = new();
+    private List<IDamageable> _damaged = new();
 
-    public event Action<HealthController> OnHealthControllerDamaged;
+    public event Action<IDamageable> OnDamageableHit;
     // ----- FIELDS ----- //
     private void Start()
     {
@@ -53,21 +54,21 @@ public class DamageTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        HealthProxy healthProxy = other.GetComponent<HealthProxy>();
+        DamageableProxy proxy = other.GetComponent<DamageableProxy>();
 
-        if (!healthProxy)
+        if (!proxy) 
             return;
 
-        HealthController healthController = healthProxy.GetHealthController();
+        IDamageable damageable = proxy.GetDamageable();
 
-        if (!healthController)
+        if (damageable == null)
             return;
 
-        // Pas plusieurs hit sur le meme durant la meme activation de trigger
-        if (_damaged.Contains(healthController))
+        if (_damaged.Contains(damageable))
             return;
 
-        _damaged.Add(healthController);
-        OnHealthControllerDamaged?.Invoke(healthController);
+        _damaged.Add(damageable);
+
+        OnDamageableHit?.Invoke(damageable);
     }
 }

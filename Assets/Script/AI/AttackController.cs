@@ -20,21 +20,21 @@ public class AttackController : MonoBehaviour
     private void Start()
     {
         if (_damageTrigger)
-            _damageTrigger.OnHealthControllerDamaged += ApplyDamageToHealthController;
+            _damageTrigger.OnDamageableHit += ApplyDamage;
     }
 
     private void OnDestroy()
     {
         if (_damageTrigger)
-            _damageTrigger.OnHealthControllerDamaged -= ApplyDamageToHealthController;
+            _damageTrigger.OnDamageableHit -= ApplyDamage;
     }
 
-    public void ApplyDamageToHealthController(HealthController healthController)
+    public void ApplyDamage(IDamageable damageable)
     {
-        if (!healthController ||!_stats)
+        if (damageable == null || !_stats)
             return;
 
-        healthController.TakeDamage(_stats.GetStat(StatType.AttackDamage));
+        damageable.TakeDamage(_stats.GetStat(StatType.AttackDamage));
     }
 
     public bool CanAttack()

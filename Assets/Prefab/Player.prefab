@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3684626878333791114}
   - component: {fileID: 2609519502357274209}
-  - component: {fileID: 5329029714856629153}
   - component: {fileID: 4798702083753566986}
+  - component: {fileID: 221023359587489563}
   m_Layer: 6
   m_Name: HitBox
   m_TagString: Player
@@ -57,19 +57,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329029714856629153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126719504334403983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07580aeec5f0ada459cd049a63669c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthProxy
-  _healthController: {fileID: 5915710732848816429}
 --- !u!114 &4798702083753566986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +70,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsProxy
   _stats: {fileID: 4593159169097382140}
+--- !u!114 &221023359587489563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126719504334403983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3e6adca3571434baf91d6842008459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageableProxy
+  _damageableTarget: {fileID: 5915710732848816429}
 --- !u!1 &901833628105176614
 GameObject:
   m_ObjectHideFlags: 0
