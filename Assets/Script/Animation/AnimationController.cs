@@ -6,8 +6,9 @@ public class AnimationController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator _animator;
 
-    [Header("Die")]
+    [Header("Health")]
     [SerializeField] private HealthController _healthController = null;
+    [SerializeField] private string _hitAnimTrigger = "Hit";
     [SerializeField] private string _dieAnimTrigger = "Die";
 
     [Header("Attack")]
@@ -23,7 +24,10 @@ public class AnimationController : MonoBehaviour
     private void Start()
     {
         if (_healthController)
+        {
             _healthController.OnDie += OnDie;
+            _healthController.OnHit += OnHit;
+        }
 
         if (_attackController)
             _attackController.OnAttack += OnAttack;
@@ -38,7 +42,10 @@ public class AnimationController : MonoBehaviour
     private void OnDestroy()
     {
         if (_healthController)
+        {
             _healthController.OnDie -= OnDie;
+            _healthController.OnHit -= OnHit;
+        }
 
         if (_attackController)
             _attackController.OnAttack -= OnAttack;
@@ -66,6 +73,14 @@ public class AnimationController : MonoBehaviour
             return;
 
         _animator.SetTrigger(_dieAnimTrigger);
+    }
+
+    private void OnHit()
+    {
+        if (!_animator)
+            return;
+
+        _animator.SetTrigger(_hitAnimTrigger);
     }
 
     private void OnSpeedChanged(float speed)

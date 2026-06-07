@@ -15,6 +15,7 @@ public class HealthController : MonoBehaviour, IDamageable
 
     public event Action<float, float> OnHealthChanged;
     public event Action OnDie;
+    public event Action OnHit;
     // ----- FIELDS ----- //
 
     private void Awake()
@@ -47,6 +48,10 @@ public class HealthController : MonoBehaviour, IDamageable
         {
             _health = 0;
             OnDie?.Invoke();
+        }
+        else
+        {
+            OnHit?.Invoke();
         }
 
         OnHealthChanged?.Invoke(_health, _maxHealth);
