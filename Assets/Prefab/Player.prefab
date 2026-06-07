@@ -241,8 +241,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755780090415915727}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7544069, w: 0.65640706}
-  m_LocalPosition: {x: 6.1705184, y: 25.682796, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.57, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -331,6 +331,9 @@ MonoBehaviour:
   _dieAnimTrigger: Die
   _attackController: {fileID: 2784793763340203397}
   _attackAnimTrigger: Attack
+  _movable: {fileID: 0}
+  _walkSpeedParam: WalkSpeed
+  _reverseParam: Reverse
 --- !u!1 &4397832111335853448
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +629,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _rb: {fileID: 9115170152858762924}
   _moveSpeed: 4
-  _animator: {fileID: 4017012815927045721}
   _gameObjectToMove: {fileID: 6331558144665418028}
   _moveInput: {fileID: 8922215318679132428, guid: 573da436e6176394ea2edebeead16100,
     type: 3}
